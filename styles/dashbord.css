@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800;900&display=swap');
+:root {
+  --primary-color-blue: #0718c4;
+  --light-white-color: #dfdfdf;
+  --white-color: #fff;
+  --black-color: #000;
+  --span-yellow-color: #ffd60a;
+  --span-red-color: #c1121f;
+
+  --primary-font: "Catamaran", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+.mobile-nav-container , .mobile-nav-link-container{
+    display: none;
+}
+header{
+    padding: 10px 50px;
+    border-bottom: 1px solid var(--primary-color-blue);
+}
+.header-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 33.333%;
+}
+.logo img{
+    width: 20rem;
+}
+.nav-items{
+    width: 33.333%;
+    display: flex;
+    justify-content: flex-start;
+}
+.nav-items a , .log-sign-btn a{
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.nav-items a{
+    margin-left: 3rem;
+    color: var(--primary-color-blue);
+    position: relative;
+}
+.nav-items a::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 3px;
+    background-color: blue;
+    bottom: 0;
+    left: 0;
+    border-radius: 50px;
+    transform-origin: 0;
+    transform: scaleX(0);
+    transition: transform .2s ease-in;
+}
+.nav-items a:hover::after{
+    transform: scaleX(1);
+}
+.log-sign-btn{
+    width: 33.333%;
+    display: flex;
+    justify-content: center;
+}
+.log-sign-btn a{
+    background-color: var(--primary-color-blue);
+    letter-spacing: 1px;
+    color: var(--white-color);
+    border: 1px solid var(--primary-color-blue);
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: .2s ease-in;
+    margin-right: 20px;
+}
+.log-sign-btn a:hover{
+    color: var(--primary-color-blue);
+    background-color: var(--white-color);
+}
+.main-container{
+    padding: 2rem 4rem 7rem 5rem;
+    display: flex;
+}
+.main-left{
+    width: 50%;
+}
+.first-text {
+    margin-bottom: 2rem;
+}
+.first-text h2{
+    font-size: 2.5rem;
+}
+.first-text p{
+    font-size: 1.5rem;
+    max-width: 70%;
+}
+.your-report {
+    width: 300px;
+  background-color: var(--primary-color-blue);
+  padding: 2rem 0;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+.your-report-main-content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  column-gap: 30px;
+  margin-bottom: 1rem;
+}
+.your-report-main-content-img {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 6px solid #ffffff6c;
+  transform: rotate(30deg);
+}
+.your-report-main-content-img .per {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-30deg);
+  width: 100%;
+  height: 100%;
+}
+.your-report-main-content-img .per p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  color: var(--white-color);
+  font-size: 1.3rem;
+}
+.your-report-main-content-text{
+    color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.your-report-main-content-text h5{
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #ffffff7f;
+}
+.your-report-main-content-text h3{
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 1.7rem;
+}
+.your-report-classes{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #dfdfdfc3;
+}
+.upcoming-lss h2{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.upcoming-lessons-container{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    margin-bottom: 2rem;
+}
+.upcoming-lesson-card{
+    width: 200px;
+    cursor: pointer;
+    padding: 1rem;
+    padding-bottom: 1.7rem;
+    background-color: var(--primary-color-blue);
+    border-radius: calc(1rem );
+}
+.upcoming-lesson-card img{
+    width: 100%;
+    border-radius: 10px;
+}
+.upcoming-lesson-card p{
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+@media(max-width : 768px){
+    header{
+        display: none;
+    }
+    .main-container{
+        padding:0;
+        display: block;
+    }
+    .main-left{
+        width: 100%;
+    }
+    .first-text{
+        padding: 0 1rem;
+    }
+    .first-text p{
+        max-width: 100%;
+    }
+    .your-reports-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .upcoming-lessons-container{
+        column-gap: 4%;
+        padding-left: 1rem;
+    }
+    .upcoming-lesson-card{
+        width: 45%;
+        margin-bottom: 1rem;
+    }
+    .upcoming-lesson-card p{
+        font-size: .8rem;
+    }
+    .upcoming-lss h2{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/dashbord.css">
+    <link rel="stylesheet" href="styles/mobile-nav.css">
+    <link rel="shortcut icon" href="img/logo-no-background.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/9aa2ea7f69.js" crossorigin="anonymous"></script>
+    <title>Student Dashboard - BLEB Learning Hub</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+        <div class="logo">
+            <a href="index.html"><img src="img/logo-color.png" alt=""></a>
+        </div>
+        <div class="nav-items">
+            <a href="index.html">Home</a>
+            <a href="index.html#courses">Courses</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+    </header>
+    <div class="mobile-nav-container">
+
+        <div class="mobile-nav-bar">
+            <button class="burger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+        </div>
+        <div class="mobile-logo">
+            <img src="img/logo-color.png" alt="">
+        </div>
+    </div>
+    <div class="mobile-nav-link-container">
+        <div class="mnav-x"><i class="fa-solid fa-xmark" id="mnavx"></i></div>
+            <div class="mobile-nav-bg"></div>
+            <div style="transition-delay: 0.1s" class="mobile-nav-bg"></div>
+            <div style="transition-delay: 0.2s" class="mobile-nav-bg"></div>
+            <div style="transition-delay: 0.3s" class="mobile-nav-bg"></div>
+            <div style="transition-delay: 0.4s" class="mobile-nav-bg"></div>
+            <ul class="mobile-nav-links">
+              <li style="animation-delay: 0.4s">
+                <a href="index.html">Home</a>
+              </li>
+              <li style="animation-delay: 0.5s">
+                <a href="index.html#course">Courses</a>
+              </li>
+              <li style="animation-delay: 0.6s">
+                <a href="#">Contact Us</a>
+              </li>
+              
+            </ul>
+    </div>
+    <div class="main-container">
+        <div class="main-left">
+            <div class="first-text">
+                <h2>Hello , Rohit &#128075; </h2>
+                <p>Nice to have you back an excisting ! Get ready and continue your lesson today.</p>
+            </div>
+            <div class="your-reports-container">
+                <h1>Your Learnings</h1>
+                <div class="your-report">
+                    <div class="your-report-main-content">
+                        <div class="your-report-main-content-img" style="border: 6px solid #fff;">
+                            <div class="per"><p>100%</p></div>
+                        </div>
+                        <div class="your-report-main-content-text">
+                            <h5>Subject</h5>
+                            <h3>HTML</h3>
+                        </div>
+                    </div>
+                    <div class="your-report-classes">
+                        <p>15 Classes Completed | 15 Total Classes</p>
+                    </div>
+                </div>
+                <div class="your-report">
+                    <div class="your-report-main-content">
+                        <div class="your-report-main-content-img" style="border-top: 6px solid #fff; border-bottom: 6px solid #fff;">
+                            <div class="per"><p>80%</p></div>
+                        </div>
+                        <div class="your-report-main-content-text">
+                            <h5>Subject</h5>
+                            <h3>CSS</h3>
+                        </div>
+                    </div>
+                    <div class="your-report-classes">
+                        <p>15 Classes Completed | 20 Total Classes</p>
+                    </div>
+                </div>
+                <div class="your-report">
+                    <div class="your-report-main-content">
+                        <div class="your-report-main-content-img">
+                            <div class="per"><p>0%</p></div>
+                        </div>
+                        <div class="your-report-main-content-text">
+                            <h5>Subject</h5>
+                            <h3>JavaScript</h3>
+                        </div>
+                    </div>
+                    <div class="your-report-classes">
+                        <p>0 Classes Completed | 45 Total Classes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-right">
+            <div class="upcoming-lss">
+                <h2>Upcoming Lessons</h2>
+                <div class="upcoming-lessons-container">
+                    <div class="upcoming-lesson-card">
+                        <img src="img/flexbox.webp" alt="">
+                        <p>Explanation of Flexbox in CSS</p>
+                    </div>
+                    <div class="upcoming-lesson-card">
+                        <img src="img/grid-im.jpg" alt="">
+                        <p>Explanation of GRID in CSS</p>
+                    </div>
+                    <div class="upcoming-lesson-card">
+                        <img src="img/bootstrap.webp" alt="">
+                        <p>Explanation of Bootstrap in CSS</p>
+                    </div>
+                </div>
+            </div>
+            <div class="upcoming-lss">
+                <h2>Recently Completed Lessons</h2>
+                <div class="upcoming-lessons-container">
+                    <div class="upcoming-lesson-card">
+                        <img src="img/positions.jpg" alt="">
+                        <p>Explanation of Positions in CSS</p>
+                    </div>
+                    <div class="upcoming-lesson-card">
+                        <img src="img/selectors.png" alt="">
+                        <p>Explanation of Selectors in CSS</p>
+                    </div>
+                    <div class="upcoming-lesson-card">
+                        <img src="img/colors.webp" alt="">
+                        <p>Explanation of Colors in CSS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const navContainer = document.querySelector('.mobile-nav-link-container');
+        const mnavX = document.querySelector('#mnavx');
+        const toggleMenu = () => navContainer.classList.toggle("open");
+
+        mnavX.addEventListener('click' , ()=>{
+            navContainer.classList.toggle("open");
+            console.log('hello owr');
+        });
+      </script>
+</body>
+</html>

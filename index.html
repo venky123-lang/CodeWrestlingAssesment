@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Web Development With BLEB Learning Hub</title>
+    <link rel="shortcut icon" href="img/logo-no-background.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/mobile-nav.css">
+    <link rel="stylesheet" href="styles/mediaqueries.css">
+    <script src="https://kit.fontawesome.com/9aa2ea7f69.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+        <div class="logo">
+            <a href="#"><img src="img/logo-color.png" alt=""></a>
+        </div>
+        <div class="nav-items">
+            <a href="#">Home</a>
+            <a href="#courses">Courses</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="log-sign-btn">
+            <a href="#" id="logsign">Login/SignUp</a>
+            <a href="getInfo.html" id="GetInfo"><i class="fa-solid fa-user"></i> Get More Information</a>
+        </div>
+    </div>
+    </header>
+    <div class="mobile-nav-container">
+
+    <div class="mobile-nav-bar">
+        <button class="burger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="mobile-logo">
+        <img src="img/logo-color.png" alt="">
+    </div>
+</div>
+<div class="mobile-nav-link-container">
+    <div class="mnav-x"><i class="fa-solid fa-xmark" id="mnavx"></i></div>
+        <div class="mobile-nav-bg"></div>
+        <div style="transition-delay: 0.1s" class="mobile-nav-bg"></div>
+        <div style="transition-delay: 0.2s" class="mobile-nav-bg"></div>
+        <div style="transition-delay: 0.3s" class="mobile-nav-bg"></div>
+        <div style="transition-delay: 0.4s" class="mobile-nav-bg"></div>
+        <ul class="mobile-nav-links">
+          <li style="animation-delay: 0.4s">
+            <a href="#">Home</a>
+          </li>
+          <li style="animation-delay: 0.5s">
+            <a href="#courses">Courses</a>
+          </li>
+          <li style="animation-delay: 0.6s">
+            <a href="#">Contact Us</a>
+          </li>
+          <li style="animation-delay: 0.7s">
+            <a href="#" id="logsign">Login/SignUp</a>
+          </li>
+          <li style="animation-delay: 0.8s">
+            <a href="dashbord.html"><i class="fa-solid fa-user"></i> Dashboard</a>
+          </li>
+          
+        </ul>
+</div>
+    <main>
+            <div class="container container-inner container-hide" id="main-container">
+                
+                <div class="screen screen-front">
+                    <div class="xmark"><span><i class="fa-solid fa-xmark"  id="login-x-mark"></i></span></div>
+                    <div class="screen__content">
+                        <form class="login" id="redirectForm">
+                            <div class="login__field">
+                                <i class="login__icon fas fa-user"></i>
+                                <input type="text" class="login__input" placeholder="User name / Email" id="username">
+                            </div>
+                            <div class="login__field">
+                                <i class="login__icon fas fa-lock"></i>
+                                <input type="password" class="login__input" placeholder="Password" id="pass">
+                            </div>
+                            <span class="donthaveac" id="signup">Dont have account SignUp Here..</span>
+                            <button class="button login__submit" id="logbtn">
+                                <span class="button__text">Log In Now</span>
+                                <i class="button__icon fas fa-chevron-right"></i>
+                            </button>				
+                        </form>
+                        <div class="social-login">
+                            <h3>Login Via</h3>
+                            <div class="social-icons">
+                                <a href="#" class="social-login__icon fa-brands fa-github"></a>
+                                <a href="#" class="social-login__icon fab fa-google"></a>
+                                <a href="#" class="social-login__icon fab fa-facebook"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen__background">
+                        <span class="screen__background__shape screen__background__shape4"></span>
+                        <span class="screen__background__shape screen__background__shape3"></span>		
+                        <span class="screen__background__shape screen__background__shape2"></span>
+                        <span class="screen__background__shape screen__background__shape1"></span>
+                    </div>		
+                </div>
+                <div class="screen screen-back">
+                    <div class="xmark"><span><i class="fa-solid fa-xmark"  id="sign-x-mark"></i></span></div>
+                    <div class="screen__content">
+                        <form class="login">
+                            <div class="login__field">
+                                <i class="login__icon fas fa-user"></i>
+                                <input type="text" class="login__input" placeholder="Enter Email">
+                            </div>
+                            <div class="login__field">
+                                <i class="login__icon fas fa-lock"></i>
+                                <input type="password" class="login__input" placeholder="Enter Password">
+                            </div>
+                            <div class="login__field">
+                                <i class="login__icon fas fa-lock"></i>
+                                <input type="password" class="login__input" placeholder="Confirm Password">
+                            </div>
+                            <span class="donthaveac" id="login">Already User..</span>
+                            <button class="button login__submit">
+                                <span class="button__text">Send Confirmation Mail</span>
+                                <i class="button__icon fas fa-chevron-right"></i>
+                            </button>				
+                        </form>
+                        <div class="social-login">
+                            <h3>SignIn Via</h3>
+                            <div class="social-icons">
+                                <a href="#" class="social-login__icon fa-brands fa-github"></a>
+                                <a href="#" class="social-login__icon fab fa-google"></a>
+                                <a href="#" class="social-login__icon fab fa-facebook"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen__background">
+                        <span class="screen__background__shape screen__background__shape4"></span>
+                        <span class="screen__background__shape screen__background__shape3"></span>		
+                        <span class="screen__background__shape screen__background__shape2"></span>
+                        <span class="screen__background__shape screen__background__shape1"></span>
+                    </div>
+                </div>
+            </div>
+        <div class="full-main-container">
+        <div class="main-container">
+            <div class="main-left-container">
+                <div class="left-heading">
+                    <h1><q>Master Web Development and Transform Your Career.</q></h1>
+                    <p>Are you ready to unlock the doors to a world of limitless opportunities in the field of web development? <span>BLEB Learning Hub</span> is your gateway to acquiring the essential skills and knowledge needed to thrive in this dynamic and ever-evolving industry. Whether you're a beginner eager to embark on your web development journey or a seasoned professional looking to stay ahead of the curve, our carefully curated courses have something to offer everyone.</p>
+                </div>
+                <div class="left-explore-btn">
+                    <a href="#courses">Explore Our Courses Now &nbsp;<i class="fa-solid fa-arrow-down"></i></a>
+                </div>
+            </div>
+            <div class="main-right-container">
+                <div class="skew"></div>
+                <div class="right-image-container">
+                    <img src="img/cover-image.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="courses-ofered-container" id="courses">
+        <h2>Our Courses</h2>
+        <h4>Check Out Popular Courses</h4>
+        <div class="courses-ofered">
+            <div class="course-box">
+                <div class="title">
+                    <h1>Full Stack with MERN</h1>
+                </div>
+                <div class="title-img">
+                    <img src="img/mern.jpg" alt="" draggable="false">
+                </div>
+                <div class="price">
+                    <div class="price-only">
+                        <h3>&#8377 9999/- <span>&nbsp;&#8377 21999 </span></h3>
+                    </div>
+                    <div class="price-discount">
+                        <p>60% Off</p>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta doloremque cupiditate amet optio, magnam natus.</p>
+                </div>
+                <div class="buy-now">
+                    <a href="#">Buy Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="course-box">
+                <div class="title">
+                    <h1>Full Stack with DJango</h1>
+                </div>
+                <div class="title-img">
+                    <img src="img/django.jpg" alt="" draggable="false">
+                </div>
+                <div class="price">
+                    <div class="price-only">
+                        <h3>&#8377 7999/- <span>&nbsp;&#8377 14999 </span></h3>
+                    </div>
+                    <div class="price-discount">
+                        <p>50% Off</p>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta doloremque cupiditate amet optio, magnam natus.</p>
+                </div>
+                <div class="buy-now">
+                    <a href="#">Buy Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="course-box">
+                <div class="title">
+                    <h1>Frontend Development</h1>
+                </div>
+                <div class="title-img">
+                    <img src="img/frontend.jpg" alt="" draggable="false">
+                </div>
+                <div class="price">
+                    <div class="price-only">
+                        <h3> &#8377 5999/- <span>&nbsp;&#8377 10999 </span></h3>
+                    </div>
+                    <div class="price-discount">
+                        <p>50% Off</p>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta doloremque cupiditate amet optio, magnam natus.</p>
+                </div>
+                <div class="buy-now">
+                    <a href="#">Buy Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="brands-heading">
+        <h2>Get Placed At Your Dream Company</h2>
+    </div>
+    <div class="brands">
+    <div class="brand-slider">
+        <img src="img/google.png" alt="Google">
+        <img src="img/microsoft.webp" alt="Microsoft">
+        <img src="img/meta.png" alt="Meta">
+        <img src="img/apple.png" alt="Apple">
+        <img src="img/adobe.png" alt="Adobe">
+        <img src="img/x.png" alt="X">
+        <img src="img/amazon.png" alt="Amazon">
+        <img src="img/ibm.png" alt="IBM">
+        <img src="img/linkedin.png" alt="LinkedIn">
+        <img src="img/github.png" alt="GitHub">
+        <img src="img/zoom.png" alt="Zoom">
+    </div>
+</div>
+<div class="foot">
+    <h3>All The Best ! , Happy Coding..</h3>
+</div>
+    </main>
+    <script>
+        const brandSliderCopy = document.querySelector('.brand-slider').cloneNode(true);
+        document.querySelector('.brands').appendChild(brandSliderCopy);
+    </script>
+    <script type="text/javascript">
+        const navContainer = document.querySelector('.mobile-nav-link-container');
+        const mnavX = document.querySelector('#mnavx');
+        const toggleMenu = () => navContainer.classList.toggle("open");
+
+        mnavX.addEventListener('click' , ()=>{
+            navContainer.classList.toggle("open");
+            console.log('hello owr');
+        });
+      </script>
+    <script src="js/index.js"></script>
+</body>
+</html>

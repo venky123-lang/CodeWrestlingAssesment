@@ -1,0 +1,137 @@
+@media(max-width : 1129px){
+  
+    :root{
+        --primary-color-blue:#0718C4;
+        --light-white-color:#dfdfdf;
+        --white-color:#fff;
+        --black-color:#000;
+        --span-yellow-color: #ffd60a;
+        --span-red-color:#c1121f;
+    
+        --primary-font: 'Catamaran', sans-serif;
+    
+    }
+    header{
+        display: none;
+    }
+    .full-main-container{
+        height: auto;
+        width: 100%;
+        background-color: var(--white-color);
+    }
+    .skew{
+        display: none;
+    }
+    .main-container{
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .main-left-container , .main-right-container{
+        width: 100%;
+        padding-right: 1rem;
+    }
+    .main-left-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .main-left-container h1{
+        max-width: 100%;
+        font-weight: 900;
+        letter-spacing: 2px;
+        font-size: 20px;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .left-heading p{
+        text-align: center;
+    }
+    .left-explore-btn a{
+        font-size: 1.2rem;
+        padding: 10px 12px;
+    }
+    .left-heading{
+        margin-bottom: 1.5rem;
+    }
+    .main-right-container {
+        padding-left: 2rem;
+    }
+    .main-right-container img{
+        border-radius: 15px;
+        width: 100%;
+    }
+  
+    .right-image-container{
+        overflow: visible;
+    }
+    .courses-ofered-container h2{
+        font-weight: 800;
+        font-size: 2.5rem;
+        text-align: center;
+        padding: 0;
+    }
+    .courses-ofered-container h4{
+        font-size: 1.2rem;
+        color: #363636;
+        text-align: center;
+        padding: 0;
+        padding-bottom: 1rem;
+    }
+    .course-box{
+        width: 94%;
+        margin-bottom: 2rem;
+    }
+    .title h1{
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .brands::after{
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background:linear-gradient(to left,rgba(255,255,255,0),#fff);
+    }
+    .brands::before{
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background:linear-gradient(to left,#fff,rgba(255,255,255,0));
+        z-index: 2;
+    }
+    @keyframes slider {
+        from{
+            transform: translateX(0);
+        }
+        to{
+            transform: translateX(-200%);
+        }
+    }
+    .brands-heading{
+        padding: 3rem 0rem 0 2rem;
+    }
+    .brands-heading h2{
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+    .fooot{
+        padding: 1.5rem;
+        text-align: center;
+    }
+    .foot h3{
+        font-size: 2rem;
+        text-align: center;
+        color: var(--primary-color-blue);
+        font-weight: 900;
+    }
+    
+   
+}

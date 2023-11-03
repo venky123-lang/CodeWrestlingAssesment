@@ -1,0 +1,997 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="O2+B4SeN3khIG65NFLav3W3hJ0Wpo3TtthPEofi/dhqcTMSNIffco+rJpkyYPSii3PP9mJ+ZpQOGoEn+8gQpgQ==">
+<title>
+      
+        Understanding CSS Grid
+      
+    </title>
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="CSS Grid is a new way to create two-dimensional layouts on the web. With just a few lines of CSS, you can create a grid that was hardly possible before without JavaScript. No plugin or complicated installs, no heavy additional files, no more design limitations due to 12-columns only." />
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.moonlearning.io/blog/css-grid">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Understanding CSS Grid">
+<meta name="twitter:title" content="Understanding CSS Grid">
+<meta property="og:description" content="CSS Grid is a new way to create two-dimensional layouts on the web. With just a few lines of CSS, you can create a grid that was hardly possible before without JavaScript. No plugin or complicated installs, no heavy additional files, no more design limitations due to 12-columns only.">
+<meta name="twitter:description" content="CSS Grid is a new way to create two-dimensional layouts on the web. With just a few lines of CSS, you can create a grid that was hardly possible before without JavaScript. No plugin or complicated installs, no heavy additional files, no more design limitations due to 12-columns only.">
+<meta property="og:image" content="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/sites/2147496605/images/adSKFRGlQnauNI2eNk5y_blog-CSSGrid.jpg">
+<meta name="twitter:image" content="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/sites/2147496605/images/adSKFRGlQnauNI2eNk5y_blog-CSSGrid.jpg">
+<link href="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2147796359/settings_images/j03CzKmRQf2ZM1nHyT1P_file.jpg?v=2" rel="shortcut icon" />
+<link rel="canonical" href="https://www.moonlearning.io/blog/css-grid" />
+
+<link href="//fonts.googleapis.com/css?family=Poppins:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" media="screen" href="https://kajabi-app-assets.kajabi-cdn.com/assets/core-39d7ec8c864adbae305102afb66be7486f2dfa14daf2042501bc27b46117fc72.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" crossorigin="anonymous">
+<link rel="stylesheet" media="screen" href="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2147796359/assets/styles.css?1697544694013719" />
+
+<link rel="stylesheet" media="screen" href="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2147796359/assets/overrides.css?1697544694013719" />
+<style>
+  /* Custom CSS Added Via Theme Settings */
+  /* CSS Overrides go here */
+.blog-listing__media {
+padding-top:20px;}
+
+
+</style>
+
+
+<link rel="alternate" type="application/rss+xml" title="moonlearning blog" href="https://www.moonlearning.io/blog.rss" /><script type="text/javascript">
+  var Kajabi = Kajabi || {};
+</script>
+<script type="text/javascript">
+  Kajabi.currentSiteUser = {
+    "id" : "-1",
+    "type" : "Guest",
+    "contactId" : "",
+  };
+</script>
+<script type="text/javascript">
+  Kajabi.theme = {
+    activeThemeName: "Encore Site",
+    previewThemeId: null,
+    editor: false
+  };
+</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)
+},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-183757848-1', 'auto', {});
+ga('send', 'pageview');
+</script>
+<style type="text/css">
+  #editor-overlay {
+    display: none;
+    border-color: #2E91FC;
+    position: absolute;
+    background-color: rgba(46,145,252,0.05);
+    border-style: dashed;
+    border-width: 3px;
+    border-radius: 3px;
+    pointer-events: none;
+    cursor: pointer;
+    z-index: 10000000000;
+  }
+  .editor-overlay-button {
+    color: white;
+    background: #2E91FC;
+    border-radius: 2px;
+    font-size: 13px;
+    margin-left: -24px;
+    margin-top: -12px;
+    padding: 3px 10px;
+    text-transform:uppercase;
+    font-weight:bold;
+    letter-spacing:1.5px;
+
+    left: 50%;
+    top: 50%;
+    position: absolute;
+  }
+</style>
+<meta name="site_locale" content="en"><style type="text/css">
+  body main {
+    direction: ltr;
+  }
+  .slick-list {
+    direction: ltr;
+  }
+</style>
+</head>
+<style>
+  body {
+    
+      
+    
+  }
+</style>
+<body class="background-unrecognized">
+<div id="section-header" data-section-id="header"><style>
+  .header {
+    
+      background-color: #FFFFFF;
+    
+    font-size: 16px;
+  }
+  .header--fixed {
+    background: #FFFFFF;
+  }
+  .header .hamburger__slices .hamburger__slice {
+    background-color: rgba(41, 41, 41, 0.785);
+  }
+  .header .hamburger__slices .hamburger__slice {
+    background-color: ;
+  }
+  
+    .header.header--fixed {
+      background-color: ;
+    }
+    .header.header--fixed a {
+      color: ;
+    }
+    .header.header--fixed a.link-list__link, .header.header--fixed a.social-icons__icon {
+    color: ;
+    }
+    .header.header--fixed a.link-list__link:hover {
+      color: rgba(41, 41, 41, 0.785);
+    }
+    .header.header--fixed .dropdown__trigger {
+      color:  !important;
+    }
+    .header.header--fixed .dropdown__trigger:hover {
+      color: ;
+    }
+    .header.header--fixed .dropdown__item a {
+      color: ;
+    }
+    .header.header--fixed .user__login a {
+      color: ;
+    }
+    .header.header--fixed .hamburger__slice {
+      background-color: ;
+    }
+  
+  .header-mobile {
+    background-color: ;
+  }
+  .header a.link-list__link, .header a.social-icons__icon, .header .dropdown__item a, .header .user__login a {
+    color: rgba(41, 41, 41, 0.785);
+  }
+  .header a.link-list__link:hover {
+    color: rgba(41, 41, 41, 0.785);
+  }
+  .header .dropdown__trigger {
+    color: rgba(41, 41, 41, 0.785) !important;
+  }
+  .header .dropdown__trigger:hover {
+    color: rgba(41, 41, 41, 0.785);
+  }
+  @media (min-width: 768px) {
+    .header {
+      font-size: 18px;
+    }
+  }
+  @media (max-width: 767px) {
+    .header a.link-list__link, .dropdown__item a {
+      text-align: left;
+    }
+    .header--overlay .header__content--mobile  {
+      padding-bottom: 20px;
+    }
+    .header__content--mobile  {
+      text-align: left;
+    }
+  }
+</style>
+<div class="hidden">
+</div>
+<header class="header header--static sticky   header--close-on-scroll" kjb-settings-id="sections_header_settings_background_color">
+<div class="hello-bars">
+</div>
+<div class="header__wrap">
+<div class="header__content header__content--desktop background-unrecognized">
+<div class="container header__container media justify-content-left">
+<style>
+@media (min-width: 768px) {
+  #block-1555988494486 {
+    text-align: left;
+  }
+} 
+</style>
+<div id="block-1555988494486" class="header__block header__block--logo header__block--show header__switch-content " kjb-settings-id="sections_header_blocks_1555988494486_settings_stretch">
+<style>
+  #block-1555988494486 {
+    line-height: 1;
+  }
+  #block-1555988494486 .logo__image {
+    display: block;
+    width: 100px;
+  }
+  #block-1555988494486 .logo__text {
+    color: ;
+  }
+</style>
+<a class="logo" href="/">
+<img class="logo__image" src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2147796359/settings_images/mcdLBcbpTs2kGKZOqPHN_logo-V2.png" kjb-settings-id="sections_header_blocks_1555988494486_settings_logo" alt="Header Logo" />
+</a>
+</div>
+<style>
+@media (min-width: 768px) {
+  #block-1555988491313 {
+    text-align: right;
+  }
+} 
+</style>
+<div id="block-1555988491313" class="header__block header__switch-content header__block--menu stretch" kjb-settings-id="sections_header_blocks_1555988491313_settings_stretch">
+<div class="link-list justify-content-right" kjb-settings-id="sections_header_blocks_1555988491313_settings_menu">
+<a class="link-list__link" href="https://www.moonlearning.io/store">Video Classes</a>
+<a class="link-list__link" href="https://www.moonlearning.io/workshops">Workshops & Talks</a>
+<a class="link-list__link" href="https://christinevallaure.medium.com/" target="_blank">Blog</a>
+</div>
+</div>
+<style>
+@media (min-width: 768px) {
+  #block-1555988487706 {
+    text-align: left;
+  }
+} 
+</style>
+<div id="block-1555988487706" class="header__block header__switch-content header__block--user " kjb-settings-id="sections_header_blocks_1555988487706_settings_stretch">
+<style>
+  /* Dropdown menu colors for desktop */
+  @media (min-width: 768px) {
+    #block-1555988487706 .dropdown__menu {
+      background: #ffffff;
+      color: #595959;
+    }
+    #block-1555988487706 .dropdown__item a, 
+    #block-1555988487706 {
+      color: #595959;
+    }
+  }  
+  /* Mobile menu text alignment */
+  @media (max-width: 767px) {
+    #block-1555988487706 .dropdown__item a,
+    #block-1555988487706 .user__login a {
+      text-align: left;
+    }
+  }
+</style>
+<div class="user" kjb-settings-id="sections_header_blocks_1555988487706_settings_language_login">
+<span class="user__login" kjb-settings-id="language_login"><a href="/login">Log In</a></span>
+</div>
+</div>
+<style>
+@media (min-width: 768px) {
+  #block-1621455534255 {
+    text-align: left;
+  }
+} 
+</style>
+<div id="block-1621455534255" class="header__block header__switch-content header__block--cta " kjb-settings-id="sections_header_blocks_1621455534255_settings_stretch">
+<style>
+  #block-1621455534255 .btn {
+    color: #292929;
+    border-color: #ff642f;
+    border-radius: 2px;
+    background-color: #ff642f;
+  }
+  #block-1621455534255 .btn--outline {
+    background: transparent;
+    color: #ff642f;
+  }
+</style>
+<a class="btn btn--solid btn--medium btn--auto" href="https://www.moonlearning.io/pricing" kjb-settings-id="sections_header_blocks_1621455534255_settings_btn_background_color">
+Sign up
+</a>
+</div>
+<div class="hamburger hidden--desktop" kjb-settings-id="sections_header_settings_hamburger_color">
+<div class="hamburger__slices">
+<div class="hamburger__slice hamburger--slice-1"></div>
+<div class="hamburger__slice hamburger--slice-2"></div>
+<div class="hamburger__slice hamburger--slice-3"></div>
+<div class="hamburger__slice hamburger--slice-4"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="header__content header__content--mobile">
+<div class="header__switch-content header__spacer"></div>
+</div>
+</div>
+</header>
+</div>
+<main>
+<div data-dynamic-sections="blog_post"><div id="section-1599688991346" data-section-id="1599688991346"><style>
+  
+  .blog-post-body {
+    background-color: ;
+  }
+  .blog-post-body .sizer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .blog-post-body .container {
+    max-width: calc(1260px + 10px + 10px);
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .blog-post-body__panel {
+    background-color: #ffffff;
+    border-color: ;
+    border-radius: 4px;
+    border-style: none;
+    border-width: 26px ;
+  }
+  .blog-post-body__title {
+    color:  !important;
+  }
+  .blog-post-body__date {
+    color: ;
+  }
+  .tag {
+    color: ;
+    background-color: ;
+  }
+  .tag:hover {
+    color: ;
+    background-color: ;
+  }
+  .blog-post-body__content {
+    color: ;
+  }
+  @media (min-width: 768px) {
+    
+    .blog-post-body .sizer {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .blog-post-body .container {
+      max-width: calc(1260px + 100px + 100px);
+      padding-right: 100px;
+      padding-left: 100px;
+    }
+  }
+</style>
+<section class="blog-post-body " kjb-settings-id="sections_1599688991346_settings_background_color">
+<div class="sizer">
+<div class="container">
+<div class="row">
+<div class="col-lg-9">
+<div class="blog-post-body__info">
+<h1 class="blog-post-body__title">Understanding CSS Grid</h1>
+<span class="blog-post-body__date" kjb-settings-id="sections_1599688991346_settings_show_date">Oct 30, 2018</span>
+</div>
+<div class="blog-post-body__media">
+<img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/blogs/2147485209/images/WgUgHhj8Tl64ZsgQfa4G_file.jpg" alt />
+</div>
+<div class="blog-post-body__content">
+<p>CSS Grid is a new way to create two-dimensional layouts on the web. With just a few lines of CSS, you can create a grid that was hardly possible before without JavaScript. No plugin or complicated installs, no heavy additional files, no more design limitations due to 12-columns only.</p>
+<p>&nbsp;</p>
+<h3>What kind of grids are possible?</h3>
+<p>In short: Actually,&nbsp;<strong>almost all grids&nbsp;</strong>that come to mind and many more. Choose the space, size and location of different grid items freely. A good overview of the most common grids with Markup can be found at&nbsp;<a href="https://gridbyexample.com/examples/" target="_blank" rel="noopener noreferrer">Grid by Example</a>.</p>
+<figure class="wp-block-image"><img src="https://cdn-images-1.medium.com/max/800/0*MJfiLHUiFLi5M2sm.png" alt /></figure>
+<hr class="wp-block-separator" />
+<h4>Let&rsquo;s get started! HTML markup for our&nbsp;example:</h4>
+<p>A&nbsp;<code>div</code>&nbsp;with the class of&nbsp;<code>.container</code>&nbsp;holds 5&nbsp;<code>div</code>/items (can, of course, be more or less). If you like, you can experiment with the&nbsp;<a href="https://codepen.io/chrisvall/pen/YJJdxQ" target="_blank" rel="noopener noreferrer">HTML and CSS markup in CodePen</a>&nbsp;directly.</p>
+<pre class="wp-block-preformatted">&lt;div class="container"&gt;<br/>   &lt;div class="item color-1"&gt; item-1 &lt;/div&gt;<br/>   &lt;div class="item color-2"&gt; item-2 &lt;/div&gt;<br/>   &lt;div class="item color-3"&gt; item-3 &lt;/div&gt;<br/>   &lt;div class="item color-4"&gt; item-4 &lt;/div&gt;<br/>   &lt;div class="item color-5"&gt; item-5 &lt;/div&gt;<br/> &lt;/div&gt;</pre>
+<figure class="wp-block-image"><img src="https://cdn-images-1.medium.com/max/800/0*lCX1UQBdGhuXCuJl.jpeg" alt />
+<figcaption>I added some CSS styling for better understanding, not relevant for the&nbsp;grid</figcaption>
+</figure>
+<h4>Base: Set Grid, Columns and Rows in the&nbsp;CSS</h4>
+<p>In the&nbsp;<strong>CSS</strong>, we turn the&nbsp;<code>.container</code>&nbsp;class into a grid by adding&nbsp;<code>display:grid</code>. With&nbsp;<code>grid-template-columns</code>&nbsp;we activate the desired columns, in this case, 5 columns with&nbsp;<code>250px</code>&nbsp;each. With&nbsp;<code>grid-template-rows</code>we can set the height of the row (if needed), in this case&nbsp;<code>150px</code>. And that&rsquo;s it, the first grid is done!</p>
+<pre class="wp-block-preformatted">.container{<br/>  display: grid;<br/>  grid-template-columns: 250px 250px 250px 250px 250px;<br/>  grid-template-rows: 150px;<br/>}<br/>/* short form: */ <br/>grid-template-columns: repeat(5, 250px);</pre>
+<figure class="wp-block-image"><img src="https://cdn-images-1.medium.com/max/800/0*yYYJTjLzTLzogzyu.jpeg" alt /></figure>
+<h4>Setting the&nbsp;gutter</h4>
+<p>Any desired distance between the items can be created with&nbsp;<code>grid-gap</code>&nbsp;for all items or separate for horizontal and vertical distances with&nbsp;<code>column-gap</code>&nbsp;and&nbsp;<code>row-gap</code>. By the way, you can use all common units, for example&nbsp;<code>px</code>&nbsp;for fixed gutters or&nbsp;<code>%</code>&nbsp;for flexible gutters.</p>
+<pre class="wp-block-preformatted">.container{<br/>  display: grid;<br/>  grid-template-columns: repeat(5, 250px);<br/>  grid-template-rows: 150px;<br/> <strong> grid-gap: 30px;</strong><br/>}</pre>
+<figure class="wp-block-image"><img src="https://cdn-images-1.medium.com/max/800/0*CR0ENpYQu_-fNCuD.png" alt /></figure>
+<h3 id="8d8c" class="lx jp fs as jq ly mt ha jt ma mu hd jw he mv hg ka hh mw hj ke hk mx hm ki fy cr">My Grid my Units, I prefer REM!</h3>
+<p id="4607" class="is it fs iu b gy kk iw ix hb kl iz ja jb km jd je jf kn jh ji jj ko jl jm jn fd cr" data-selectable-paragraph>Now a lot of Grid Systems (not all) will be using px values, at least for the Gutter and breakpoints. To make my designs more accessible I prefer translating them to rem/em. There are<span>&nbsp;</span><a href="https://betterprogramming.pub/px-em-or-rem-examining-media-query-units-in-2021-e00cf37b91a9" class="cd kq">some issues with Safari<span>&nbsp;</span></a>when it comes to breakpoints but I prioritize accessibility over Safari bugs. So assuming that our base size is 1rem=16px we just divide the px we would usually have by 16. I rounded it just to keep it clean, plus I do not believe in px perfect anyways. So our columns would be 250px/16=15,625 so for this example I rounded this up to 16rem</p>
+<pre class="ks kt ku kv kw mj mk dp"><span id="0da7" class="cr lx jp fs mi b co ml mm s mn" data-selectable-paragraph>.container{<br/>  display: grid;<br/>  grid-template-columns: repeat(5, 16rem); <br/>  grid-template-rows: 9rem; <br/> <strong class="mi kp"> grid-gap: 2rem; </strong><br/>}</span></pre>
+<h4>Automatic distribution to the available screen area with&nbsp;&ldquo;fr&rdquo;</h4>
+<p>A designer&rsquo;s dream! With&nbsp;<strong>Fractional Units</strong>&nbsp;short&nbsp;<code>fr</code>&nbsp;you can divide the available space according to your wishes! Here, for example, we divide the screen size into 6 parts. The first column takes 1/6 =&nbsp;<code>1fr</code>&nbsp;of the space, the second column 3/6=&nbsp;<code>3fr</code>&nbsp;and the third column 2/6=&nbsp;<code>2fr</code>. You can of course also add&nbsp;<code>grid-gap</code>&nbsp;if you wish.</p>
+<pre class="wp-block-preformatted">.container{<br/>  display: grid;<br/>grid-template-columns:<strong> 1fr 3fr 2fr;</strong><br/>}</pre>
+<figure class="wp-block-image"><img src="https://cdn-images-1.medium.com/max/800/0*yh7hFOcFs43LM9q8.gif" alt /></figure>
+<p>all rows flexible</p>
+<h4>Mixing for fixed and flexible&nbsp;columns</h4>
+<p><code>rem&nbsp;</code>and&nbsp;<code>fr&nbsp;</code>can be mixed in any desired way the rest will adapt to the available space. Works like a charm!</p>
+<pre class="wp-block-preformatted">.container{<br/>  display: grid;<br/>  grid-template-columns: <strong>19rem 3fr 2fr;</strong><br/>}</pre>
+<figure class="wp-block-image"><img src="https://cdn-images-1.medium.com/max/800/0*9buHg29Y9pG0bJir.gif" alt />
+<figcaption><span>the first row fixed (my 19 rem will actually translate to 304px in the browser if we keep the user keeps the base size of preset 16px=1rem) remaining layout flexible</span></figcaption>
+</figure>
+<h4>Absolute freedom of arrangement</h4>
+<p>The best thing is, all items can take up as much space as you like even within the gird! For this purpose, a starting point is set with&nbsp;<code>grid-column-start</code>&nbsp;and the end with&nbsp;<code>grid-column-end</code>. Or in short&nbsp;<code>grid-column: startpoint / endpoint;</code></p>
+<pre class="wp-block-preformatted">.container{<br/>  display: grid;<br/>  grid-template-columns: 1fr 3fr 2fr;<br/>}<br/>.item-1 {<br/><strong> grid-column: 1 / 4;</strong><br/>}<br/>.item-5 {<br/><strong> grid-column: 3 / 4;</strong><br/>}</pre>
+<figure class="wp-block-image"><img src="https://cdn-images-1.medium.com/max/800/0*fGVZP5_NMbf9UJs3.png" alt /></figure>
+<p>Don&rsquo;t get confused by the grid lines, they start at the very beginning of the first item!</p>
+<h4>The same applies to vertical or full-area distribution!</h4>
+<p>Here CSS Grid can shine and prove its superiority over Boostrap and Co. Items can take all vertical sizes and positions with the help of&nbsp;<code>grid-row</code>. As we will see in the next example, this is an absolute advantage for adapting to different screen sizes and devices.</p>
+<pre class="wp-block-preformatted">.container{<br/>  display: grid;<br/>  grid-template-columns: 1fr 3fr 2fr;<br/>}<br/>.item-2 {<br/><strong> grid-row: 1 / 3;</strong><br/>}<br/>.item-1 {<br/><strong> grid-column: 1 / 4;<br/> grid-row: 3 / 4;</strong><br/>}</pre>
+<figure class="wp-block-image"><img src="https://cdn-images-1.medium.com/max/800/0*a3fS5-GjETjWhArV.png" alt />
+<figcaption>Any vertical width and&nbsp;position</figcaption>
+</figure>
+<h4>Adapting to different screen sizes and devices? Of&nbsp;course!</h4>
+<p>Here CSS Grid also has a clear advantage over conventional grids, depending on the screen size you can not only switch from flexible to fixed elements with media queries, but you can also adjust the position of entire items!</p>
+<pre class="wp-block-preformatted">.container{<br/> display: grid;<br/> grid-template-columns: 15rem 3fr 2fr;<br/>}<br/>.item-1 {<br/> grid-column: 1 / 4;<br/>}<br/>.item-2 {<br/> grid-row: 2 / 4;<br/>}<br/><a href="https://twitter.com/media" target="_blank" rel="noopener noreferrer">@media</a> only screen and (max-width: 45em){<br/>  .container{<br/>   grid-template-columns: 1fr 1fr;<br/>  } <br/>  .item-1 {<br/>   grid-column: 1 / 3;<br/>   grid-row: 2 / 3;<br/>  } <br/>  .item-2 {<br/>   grid-row: 1 / 1;<br/>  }<br/>}</pre>
+<figure class="wp-block-image"><img src="https://cdn-images-1.medium.com/max/800/0*zF54G2_cLwYLyNh-.gif" alt /></figure>
+<h3>Browser support</h3>
+<p>CSS Grid is now natively supported by all modern browsers (Safari, Chrome, Firefox, Edge). With global support of 87.85%, CSS Grids are already an alternative to Boostrap and Co.</p>
+<figure class="wp-block-image"><img src="https://cdn-images-1.medium.com/max/800/0*JIVUYk-7ASagbEy0.jpeg" alt />
+<figcaption>Status: October 2018 via&nbsp;<a href="https://caniuse.com/#search=CSS%20Grid" target="_blank" rel="noopener noreferrer" data-et-has-event-already="true">caniuse.com</a></figcaption>
+</figure>
+<h3>Real-life examples with CSS&nbsp;Grid</h3>
+<p><a href="https://slack.com/intl/de-de/" target="_blank" rel="noopener noreferrer">Slack</a>, Company Website</p>
+<p><a href="https://medium.com/" target="_blank" rel="noopener noreferrer">Medium</a>, Articles</p>
+<p><a href="https://photo.skylerhughes.com/" target="_blank" rel="noopener noreferrer">Skyler Hughes</a>, Photography</p>
+<p><a href="https://mxb.at/" target="_blank" rel="noopener noreferrer">Max B&ouml;ck</a>, front-end developer</p>
+<p><a href="https://designcode.io/" target="_blank" rel="noopener noreferrer">Design+Code</a>, tutorials for web designers</p>
+<p><a href="http://www.hi.agency/deck/" target="_blank" rel="noopener noreferrer">Hi Agency, Deck</a>, template page</p>
+<p><a href="http://www.christinevallaure.com%2C/" target="_blank" rel="noopener noreferrer">www.christinevallaure.com,</a>&nbsp;UX/UI Design</p>
+</div>
+<style>
+  .blog-post-cta {
+    background-color: #292929;
+    border-color: #292929;
+    border-width: 1px;
+    text-align: center;
+  }
+  #cta-btn {
+    margin-top: 20px;
+    border-color: #ff642f;
+    border-radius: 2px;
+    color: #292929;
+    background-color: #ff642f;
+  }
+  #cta-btn.btn--outline {
+    background: transparent;
+    color: #ff642f;
+  }
+</style>
+<div class="blog-post-cta background-dark" kjb-settings-id="sections_1599688991346_settings_cta_background_color">
+<div class="blog-post-cta__content" kjb-settings-id="sections_1599688991346_settings_cta_content"><h2>Learn UX/UI online anytime, anywhere</h2></div>
+<a id="cta-btn" class="btn btn--solid btn--medium btn--full" href="/store" kjb-settings-id="sections_1599688991346_settings_cta_btn_background_color">
+Start now
+</a>
+</div>
+<style>
+  .blog-post-optin {
+    background-color: #ffffff;
+    border-color: #292929;
+    border-width: 1px;
+    text-align: center;
+  }
+  .blog-post-optin__disclaimer-text {
+    color: #888888;
+  }
+  #opt-in-btn {
+    border-color: #ff642f;
+    border-radius: 2px;
+    color: #292929;
+    background-color: #ff642f;
+  }
+  #opt-in-btn.btn--outline {
+    background: transparent;
+    color: #ff642f;
+  }
+</style>
+<div class="blog-post-optin background-light" kjb-settings-id="sections_1599688991346_settings_opt_in_background_color">
+<div class="blog-post-optin__content" kjb-settings-id="sections_1599688991346_settings_opt_in_content"><h4>Stay connected with news and updates!</h4>
+<p>Join our mailing list to receive the latest news and updates from our team.<br class="hidden--mobile" />Don't worry, your information will not be shared.</p></div>
+<div class="blog-post-optin__form" kjb-settings-id="sections_1599688991346_settings_opt_in_form">
+<form data-parsley-validate="true" data-kjb-disable-on-submit="true" action="https://www.moonlearning.io/forms/2147523802/form_submissions" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="z+JQZdCAxajzbwaud8/f/c4MamnhONpnzhPPMGsntZccc8I5crMPjfA07kFzOogbEib+V0IFG7AvU5nDqhe+nA==" /><input type="text" name="website_url" autofill="off" placeholder="Skip this field" style="display: none;" /><input type="hidden" name="kjb_fk_checksum" autofill="off" value="9588e6633782f335cc885f3e4f45187c" />
+<input type="hidden" name="thank_you_url" value>
+<div class="text-field form-group"><input type="text" name="form_submission[name]" id="form_submission_name" value required="required" class="form-control" placeholder="Name" /></div>
+<div class="email-field form-group"><input required="required" class="form-control" placeholder="Email" data-parsley-remote="true" data-parsley-remote-validator="kjb_email_validator" type="email" name="form_submission[email]" id="form_submission_email" /></div>
+<input id="opt-in-btn" class="btn btn--solid btn--medium btn--full " type="submit" name="commit" value="Submit" />
+</form>
+</div>
+<p class="blog-post-optin__disclaimer-text" kjb-settings-id="sections_1599688991346_settings_opt_in_disclaimer_text">We hate SPAM. We will never sell your information, for any reason.</p>
+</div>
+</div>
+<style>
+   .sidebar__panel {
+     background-color: #ffffff;
+     border-color: ;
+     border-radius: 4px;
+     border-style: none;
+     border-width: 25px ;
+   }
+</style>
+<div class="col-lg-3    ">
+<div class="sidebar" kjb-settings-id="sections_1599688991346_settings_show_sidebar">
+<div class="sidebar__block">
+<style>
+  .sidebar-search__icon i {
+    color: ;
+  }
+  .sidebar-search--1600295460576 ::-webkit-input-placeholder {
+    color: ;
+  }
+  .sidebar-search--1600295460576 ::-moz-placeholder {
+    color: ;
+  }
+  .sidebar-search--1600295460576 :-ms-input-placeholder {
+    color: ;
+  }
+  .sidebar-search--1600295460576 :-moz-placeholder {
+    color: ;
+  }
+  .sidebar-search--1600295460576 .sidebar-search__input {
+    color: ;
+  }
+</style>
+<div class="sidebar-search sidebar-search--1600295460576" kjb-settings-id="sections_1599688991346_blocks_1600295460576_settings_search_text">
+<form class="sidebar-search__form" action="/blog/search" method="get" role="search">
+<span class="sidebar-search__icon"><i class="fa fa-search"></i></span>
+<input class="form-control sidebar-search__input" type="search" name="q" placeholder="Search...">
+</form>
+</div>
+</div>
+<div class="sidebar__block">
+<style>
+  .sidebar-categories--1600295464514 {
+    text-align: left;
+  }
+  .sidebar-categories--1600295464514 .sidebar-categories__title {
+    color: ;
+  }
+  .sidebar-categories--1600295464514 .sidebar-categories__select {
+    color:  !important;
+  }
+  .sidebar-categories--1600295464514 .sidebar-categories__link {
+    color: ;
+  }
+  .sidebar-categories--1600295464514 .sidebar-categories__tag {
+    color: ;
+  }
+</style>
+<div class="sidebar-categories sidebar-categories--1600295464514">
+<p class="h5 sidebar-categories__title" kjb-settings-id="sections_1599688991346_blocks_1600295464514_settings_heading">Categories</p>
+<a class="sidebar-categories__link" href="/blog" kjb-settings-id="sections_1599688991346_blocks_1600295464514_settings_all_tags">All Categories</a>
+<a class="sidebar-categories__tag" href="https://www.moonlearning.io/blog?tag=figma">figma</a>
+<a class="sidebar-categories__tag" href="https://www.moonlearning.io/blog?tag=handoff">handoff</a>
+<a class="sidebar-categories__tag" href="https://www.moonlearning.io/blog?tag=html%26css">html&css</a>
+<a class="sidebar-categories__tag" href="https://www.moonlearning.io/blog?tag=plugin">plugin</a>
+<a class="sidebar-categories__tag" href="https://www.moonlearning.io/blog?tag=ui+design">ui design</a>
+<a class="sidebar-categories__tag" href="https://www.moonlearning.io/blog?tag=ux%2Fui">ux/ui</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div></div>
+</main>
+<div id="section-footer" data-section-id="footer">
+<style>
+    #section-footer {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+    .footer {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+    }
+  </style>
+<style>
+  .footer, .footer__block {
+    font-size: 16px;
+    color: ;
+    background-color: #000000;
+  }
+  .footer .logo__text {
+    color: ;
+  }
+  .footer .link-list__links {
+    width: 100%;
+  }
+  .footer a.link-list__link {
+    color: ;
+  }
+  .footer .link-list__link:hover {
+    color: ;
+  }
+  .copyright {
+    color: ;
+  }
+  @media (min-width: 768px) {
+    .footer, .footer__block {
+      font-size: 18px;
+    }
+  }
+  .powered-by {
+    background-color: #000000;
+  }
+  .powered-by a {
+    color: ;
+  }
+  
+</style>
+<footer class="footer   background-dark  " kjb-settings-id="sections_footer_settings_background_color">
+<div class="footer__content">
+<div class="container footer__container media">
+
+
+
+<style>
+  /* flush setting */
+  
+  /* margin settings */
+  #block-1602193175296 {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+  #block-1602193175296 .block {
+    /* border settings */
+    border: 4px  black;
+    border-radius: 4px;
+    /* background color */
+    
+      background-color: ;
+    
+    /* default padding for mobile */
+    
+      padding: 20px;
+    
+    
+      padding: 20px;
+    
+    
+      
+        padding: 20px;
+      
+    
+    /* mobile padding overrides */
+    
+    
+      padding-top: 0px;
+    
+    
+      padding-right: 0px;
+    
+    
+      padding-bottom: 0px;
+    
+    
+      padding-left: 0px;
+    
+  }
+
+  @media (min-width: 768px) {
+    /* desktop margin settings */
+    #block-1602193175296 {
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+    }
+    #block-1602193175296 .block {
+      /* default padding for desktop  */
+      
+        padding: 30px;
+      
+      
+        
+          padding: 30px;
+        
+      
+      /* desktop padding overrides */
+      
+      
+        padding-top: 0px;
+      
+      
+        padding-right: 0px;
+      
+      
+        padding-bottom: 0px;
+      
+      
+        padding-left: 0px;
+      
+    }
+  }
+  /* mobile text align */
+  @media (max-width: 767px) {
+    #block-1602193175296 {
+      text-align: center;
+    }
+  }
+</style>
+<div kjb-settings-id="sections_footer_blocks_1602193175296_settings_width" id="block-1602193175296" class="
+  block-type--link_list
+  text-right
+  col-
+  
+  
+  
+  " data-reveal-event data-reveal-offset data-reveal-units>
+<div class="block
+    box-shadow-
+    " data-aos="-" data-aos-delay data-aos-duration>
+<style>
+  #block-1602193175296 .link-list__title {
+    color: ;
+  }
+  #block-1602193175296 .link-list__link {
+    color: ;
+  }
+</style>
+<div class="link-list link-list--row link-list--desktop-right link-list--mobile-center">
+<div class="link-list__links" kjb-settings-id="sections_footer_blocks_1602193175296_settings_menu">
+<a class="link-list__link" href="https://www.moonlearning.io/"><span class="__cf_email__" data-cfemail="b4dcd1d8d8dbf4d9dbdbdad8d1d5c6dadddad39adddb">[email&#160;protected]</span></a>
+<a class="link-list__link" href="https://www.moonlearning.io/site/about">About</a>
+</div>
+</div>
+</div>
+</div>
+<div id="block-1555988525205" class="footer__block ">
+<span class="copyright" kjb-settings-id="sections_footer_blocks_1555988525205_settings_copyright">
+&copy; 2023 moonlearning
+</span>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div id="section-exit_pop" data-section-id="exit_pop"><style>
+  #exit-pop .modal__content {
+    background: ;
+  }
+  
+</style>
+</div>
+<div id="section-two_step" data-section-id="two_step"><style>
+  #two-step .modal__content {
+    background: ;
+  }
+  
+</style>
+<div class="modal two-step" id="two-step" kjb-settings-id="sections_two_step_settings_two_step_edit">
+<div class="modal__content background-unrecognized">
+<div class="close-x">
+<div class="close-x__part"></div>
+<div class="close-x__part"></div>
+</div>
+<div class="modal__body row text- align-items-start justify-content-left">
+
+
+
+<style>
+  /* flush setting */
+  
+  /* margin settings */
+  #block-1585757540189 {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+  #block-1585757540189 .block {
+    /* border settings */
+    border: 4px none black;
+    border-radius: 4px;
+    /* background color */
+    
+    /* default padding for mobile */
+    
+    
+    
+    /* mobile padding overrides */
+    
+      padding: 0;
+    
+    
+    
+    
+    
+  }
+
+  @media (min-width: 768px) {
+    /* desktop margin settings */
+    #block-1585757540189 {
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+    }
+    #block-1585757540189 .block {
+      /* default padding for desktop  */
+      
+      
+      /* desktop padding overrides */
+      
+        padding: 0;
+      
+      
+      
+      
+      
+    }
+  }
+  /* mobile text align */
+  @media (max-width: 767px) {
+    #block-1585757540189 {
+      text-align: ;
+    }
+  }
+</style>
+<div kjb-settings-id="sections_two_step_blocks_1585757540189_settings_width" id="block-1585757540189" class="
+  block-type--image
+  text-
+  col-12
+  
+  
+  
+  " data-reveal-event data-reveal-offset data-reveal-units>
+<div class="block
+    box-shadow-none
+    " data-aos="-" data-aos-delay data-aos-duration>
+<style>
+  #block-1585757540189 .block {
+    display: flex;
+    justify-content: flex-start;
+  }
+  #block-1585757540189 .image {
+    width: 100%;
+    
+  }
+  #block-1585757540189 .image__image {
+    width: 100%;
+    
+  }
+  #block-1585757540189 .image__overlay {
+    
+      opacity: 0;
+    
+    background-color: #fff;
+  }
+  #block-1585757540189 .image__overlay-text {
+    color:  !important;
+  }
+  @media (min-width: 768px) {
+    #block-1585757540189 .block {
+        display: flex;
+        justify-content: flex-start;
+    }
+    #block-1585757540189 .image__overlay {
+      opacity: 0;
+    }
+    #block-1585757540189 .image__overlay:hover {
+      opacity: 1;
+    }
+  }
+  
+</style>
+<div class="image">
+<img class="image__image" src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2147796359/assets/placeholder.png?1697544694013719" kjb-settings-id="sections_two_step_blocks_1585757540189_settings_image" alt />
+</div>
+</div>
+</div>
+
+
+
+<style>
+  /* flush setting */
+  
+  /* margin settings */
+  #block-1585757543890 {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+  #block-1585757543890 .block {
+    /* border settings */
+    border: 4px none black;
+    border-radius: 4px;
+    /* background color */
+    
+    /* default padding for mobile */
+    
+    
+    
+    /* mobile padding overrides */
+    
+    
+    
+    
+    
+  }
+
+  @media (min-width: 768px) {
+    /* desktop margin settings */
+    #block-1585757543890 {
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+    }
+    #block-1585757543890 .block {
+      /* default padding for desktop  */
+      
+      
+      /* desktop padding overrides */
+      
+      
+      
+      
+      
+    }
+  }
+  /* mobile text align */
+  @media (max-width: 767px) {
+    #block-1585757543890 {
+      text-align: center;
+    }
+  }
+</style>
+<div kjb-settings-id="sections_two_step_blocks_1585757543890_settings_width" id="block-1585757543890" class="
+  block-type--form
+  text-center
+  col-12
+  
+  
+  
+  " data-reveal-event data-reveal-offset data-reveal-units>
+<div class="block
+    box-shadow-none
+    " data-aos="-" data-aos-delay data-aos-duration>
+<style>
+  #block-1585757543890 .form-btn {
+    border-color: #ff642f;
+    border-radius: 2px;
+    background: #ff642f;
+    color: #292929;
+  }
+  #block-1585757543890 .btn--outline {
+    color: #ff642f;
+    background: transparent;
+  }
+  #block-1585757543890 .disclaimer-text {
+    font-size: 16px;
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+    color: #888;
+  }
+</style>
+<div class="form">
+<div kjb-settings-id="sections_two_step_blocks_1585757543890_settings_text"><h4>Join Our Free Trial</h4>
+<p>Get started today before this once in a lifetime opportunity expires.</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script charset="ISO-8859-1" src="https://fast.wistia.com/assets/external/E-v1.js"></script>
+<script charset="ISO-8859-1" src="https://fast.wistia.com/labs/crop-fill/plugin.js"></script>
+<script src="https://kajabi-app-assets.kajabi-cdn.com/assets/encore_core-e26a6cb62fcfc401ea1b43641d358968dd6e54ed819b5475b79d1fd17a238238.js"></script>
+<script src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2147796359/assets/scripts.js?1697544694013719"></script>
+
+<script>
+  /* Custom JS Added Via Theme Settings */
+  /* Javascript code goes here */
+</script>
+</body>
+</html>
